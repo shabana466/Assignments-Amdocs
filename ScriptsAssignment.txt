@@ -1,0 +1,18 @@
+1.write shell script to find "error" message in serverlog.log
+
+grep "ERROR"/temp/serverlog.log|sort|uniq -c
+
+
+2.write shell script to ping the machine& check whether machine is up or down
+ date>>/home/insight/scripts/www.google.comping.out
+  cat /home/insight/scripts/www.google.comping.out
+   |while read output
+  do
+ ping -c 1 $output">>/dev/null
+ if [$? -eq 0]; then
+   echo  "server is up">>/home/insight/scripts/www.google.comping.out
+ else
+    echo  "server is down">>/home/insight/scripts/www.google.comping.out
+fi
+done
+ 
